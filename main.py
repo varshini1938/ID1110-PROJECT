@@ -172,31 +172,31 @@ while resp == 1:
 			if t==1:
 				if sheet.cell(row=i, column=1).value == n:
 					#updating the number of leaves
-					n = sheet.cell(row=i, column=3).value
-					n = n+1
+					s = sheet.cell(row=i, column=3).value
+				        s = s+1
 					sheet.cell(row=i, column=3).value = n
 					#saving the data
 					savefile()
-					leaves.append(n)
+					leaves.append(s)
 					row_num.append(i)
 
 			elif t == 2:
 				if sheet.cell(row=i, column=1).value == n:
-					n = sheet.cell(row=i, column=4).value
-					n = n+1
+					s = sheet.cell(row=i, column=4).value
+					s = s+1
 					sheet.cell(row=i, column=4).value = n
 					savefile()
-					leaves.append(n)
+					leaves.append(s)
 					row_num.append(i)
 
 			elif t == 3:
 				if sheet.cell(row=i, column=1).value == n:
-					n = sheet.cell(row=i, column=5).value
-					n = n+1
+					s = sheet.cell(row=i, column=5).value
+					s = s+1
 					sheet.cell(row=i, column=5).value = n
 					savefile()
 					row_num.append(i)
-					leaves.append(n)
+					leaves.append(s)
 
 	check(leaves, row_num, t)
 	#taking the input if the user wants to check for another subject
