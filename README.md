@@ -6,5 +6,5 @@ Attendance Tracker
   3. G.Sri Varshini (132301012@smail.iitpkd.ac.in)
 # Contibutions:
    Tanay Vashist:function to send the mails to students and staff  
-   Abhishiktha: 
-   G.Sri Varshini: 
+   Abhishiktha: decesion making structure for message to be sent to students according                 to the number of leaves
+   G.Sri Varshini: loop to save and update the attendence to the excel shhet
