@@ -146,7 +146,7 @@ while resp == 1:
 	print("1--->phy\n2--->math\n3--->mech")
 
 	# enter the corresponding number
-	y = int(input("enter subject :"))
+	t = int(input("enter subject :"))
 
 	# taking input of the number of people absent for that course
 	no_of_absentees = int(input('no.of.absentees :'))
@@ -169,34 +169,34 @@ while resp == 1:
 		for i in range(2, rows+2):
 		#students
   			
-			if y==1:
+			if t==1:
 				if sheet.cell(row=i, column=1).value == student:
 					#updating the number of leaves
-					m = sheet.cell(row=i, column=3).value
-					m = m+1
-					sheet.cell(row=i, column=3).value = m
+					n = sheet.cell(row=i, column=3).value
+					n = n+1
+					sheet.cell(row=i, column=3).value = n
 					#saving the data
 					savefile()
-					no_of_days.append(m)
+					no_of_days.append(n)
 					row_num.append(i)
 
-			elif y == 2:
+			elif t == 2:
 				if sheet.cell(row=i, column=1).value == student:
-					m = sheet.cell(row=i, column=4).value
-					m = m+1
-					sheet.cell(row=i, column=4).value = m
+					n = sheet.cell(row=i, column=4).value
+					n = n+1
+					sheet.cell(row=i, column=4).value = n
 					savefile()
-					no_of_days.append(m)
+					no_of_days.append(n)
 					row_num.append(i)
 
-			elif y == 3:
+			elif t == 3:
 				if sheet.cell(row=i, column=1).value == student:
-					m = sheet.cell(row=i, column=5).value
-					m = m+1
-					sheet.cell(row=i, column=5).value = m
+					n = sheet.cell(row=i, column=5).value
+					n = n+1
+					sheet.cell(row=i, column=5).value = n
 					savefile()
 					row_num.append(i)
-					no_of_days.append(m)
+					no_of_days.append(n)
 
 	check(no_of_days, row_num, y)
 	#taking the input if the user wants to check for another subject
