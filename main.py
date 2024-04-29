@@ -1,3 +1,6 @@
+#staff mail ids
+staff_mails=['srivarshini4578@gmail.com','132301012@smail.iitpkd.ac.in','132301012@smail.iitpkd.ac.in']
+
 # for students
 def mailstu(li, msg):
 	from_id = '132301012@smail.iitpkd.ac.in'
