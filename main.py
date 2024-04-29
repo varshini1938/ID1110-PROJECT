@@ -52,41 +52,41 @@ def check(leaves, row_num, b):
 	global l2
 	global l3
 
-	for student in range(0, len(row_num)):
+	for n in range(0, len(row_num)):
 		# if the student has taken k-1 leaves
-		if leaves[student] == k-1:
+		if leaves[n] == k-1:
 			if b==1:
 				# b is the subject code
 				#appending the mail id to list1
-				l1.append(sheet.cell(row=row_num[student], column=2).value)
+				l1.append(sheet.cell(row=row_num[n], column=2).value)
 				mailstu(l1, message1)
 			
 			elif b==2:
-				l1.append(sheet.cell(row=row_num[student], column=2).value)
+				l1.append(sheet.cell(row=row_num[n], column=2).value)
 				mailstu(l1, message2)
 			
 			else:
-				l1.append(sheet.cell(row=row_num[student], column=2).value)
+				l1.append(sheet.cell(row=row_num[n], column=2).value)
 				mailstu(l1, message3)
 
 		# if the student has taken thr maximum number of leaves or more
-		elif leaves[student] > k-1:
+		elif leaves[n] > k-1:
 			if b==1:
 				#adding the roll no. to l2
-				l2=l2+str(sheet.cell(row=row_num[student], column=1).value)
+				l2=l2+str(sheet.cell(row=row_num[n], column=1).value)
 
 				#adding the mail id to list3
-				l3.append(sheet.cell(row=row_num[student], column=2).value)
+				l3.append(sheet.cell(row=row_num[n], column=2).value)
 				subject = "Physics"
 
 			elif b==2:
-				l2=l2+str(sheet.cell(row=row_num[student], column=1).value)
-				l3.append(sheet.cell(row=row_num[student], column=2).value)
+				l2=l2+str(sheet.cell(row=row_num[n], column=1).value)
+				l3.append(sheet.cell(row=row_num[n], column=2).value)
 				subject = "Math"
 
 			else:
-				l2=l2+str(sheet.cell(row=row_num[student], column=1).value)
-				l3.append(sheet.cell(row=row_num[student], column=2).value)
+				l2=l2+str(sheet.cell(row=row_num[n], column=1).value)
+				l3.append(sheet.cell(row=row_num[n], column=2).value)
 				subject = "Mechanics"
 
 
@@ -164,13 +164,13 @@ while resp == 1:
 	leaves = []
 
 	#updating the excel sheet
-	for student in x:
+	for n in x:
 
 		for i in range(2, rows+2):
 		#students
   			
 			if t==1:
-				if sheet.cell(row=i, column=1).value == student:
+				if sheet.cell(row=i, column=1).value == n:
 					#updating the number of leaves
 					n = sheet.cell(row=i, column=3).value
 					n = n+1
@@ -181,7 +181,7 @@ while resp == 1:
 					row_num.append(i)
 
 			elif t == 2:
-				if sheet.cell(row=i, column=1).value == student:
+				if sheet.cell(row=i, column=1).value == n:
 					n = sheet.cell(row=i, column=4).value
 					n = n+1
 					sheet.cell(row=i, column=4).value = n
@@ -190,7 +190,7 @@ while resp == 1:
 					row_num.append(i)
 
 			elif t == 3:
-				if sheet.cell(row=i, column=1).value == student:
+				if sheet.cell(row=i, column=1).value == n:
 					n = sheet.cell(row=i, column=5).value
 					n = n+1
 					sheet.cell(row=i, column=5).value = n
