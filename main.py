@@ -27,6 +27,7 @@ l2=""
 
 #list of students who have taken maximum no.of leaves
 l3=[]
+
 #staff mail ids
 staff_mails=['srivarshini4578@gmail.com','132301012@smail.iitpkd.ac.in','132301012@smail.iitpkd.ac.in']
 
@@ -136,27 +137,67 @@ def mailstaff(mail_id, msg):
 	s.quit()
 	print('Mail Sent to staff')
 
+# variable for looping for input
+resp=1
 
+#updating the attendance to the excel sheet
+while resp == 1:
+	#subject numbers
+	print("1--->phy\n2--->math\n3--->mech")
 
+	# enter the corresponding number
+	y = int(input("enter subject :"))
 
+	# taking input of the number of people absent for that course
+	no_of_absentees = int(input('no.of.absentees :'))
 
+	#taking the roll no.'s of the students on leave 
+	if(no_of_absentees > 1):
+		x = list(map(int, (input('roll nos :').split(','))))
+	else:
+		x = [int(input('roll no :'))]
 
+	# list to hold row of the student in the excel sheet
+	row_num = []
 
+	# list to hold the total number of leaves taken by a particular student
+	no_of_days = []
 
+	#updating the excel sheet
+	for student in x:
 
+		for i in range(2, rows+2):
+		#students
+  			
+			if y==1:
+				if sheet.cell(row=i, column=1).value == student:
+					#updating the number of leaves
+					m = sheet.cell(row=i, column=3).value
+					m = m+1
+					sheet.cell(row=i, column=3).value = m
+					#saving the data
+					savefile()
+					no_of_days.append(m)
+					row_num.append(i)
 
+			elif y == 2:
+				if sheet.cell(row=i, column=1).value == student:
+					m = sheet.cell(row=i, column=4).value
+					m = m+1
+					sheet.cell(row=i, column=4).value = m
+					savefile()
+					no_of_days.append(m)
+					row_num.append(i)
 
+			elif y == 3:
+				if sheet.cell(row=i, column=1).value == student:
+					m = sheet.cell(row=i, column=5).value
+					m = m+1
+					sheet.cell(row=i, column=5).value = m
+					savefile()
+					row_num.append(i)
+					no_of_days.append(m)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+	check(no_of_days, row_num, y)
+	#taking the input if the user wants to check for another subject
+	resp = int(input('another subject ? 1---->yes 0--->no'))
