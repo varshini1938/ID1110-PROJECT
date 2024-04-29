@@ -5,7 +5,7 @@ Attendance Tracker
   2. Abhishiktha Mahanti (132301002@smail.iitpkd.ac.in)
   3. G.Sri Varshini (132301012@smail.iitpkd.ac.in)
 # Contibutions:
-  1. Tanay Vashist:
+  1. Tanay Vashist:function to send the mails to students and staff
        
-  3. Abhishiktha:
-  4. G.Sri Varshini:
+  3. Abhishiktha: The type of messeage that is to be sent according to the number of leaves
+  4. G.Sri Varshini: 
