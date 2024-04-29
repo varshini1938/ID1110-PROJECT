@@ -45,7 +45,7 @@ def savefile():
 k=int(input('enter the maximum number of leaves that can be taken: '))
 
 #creating a fuction to check the number of leaves taken
-def check(no_of_days, row_num, b):
+def check(leaves, row_num, b):
 
 	# to globally use the lists and strings
 	global staff_mails
@@ -54,7 +54,7 @@ def check(no_of_days, row_num, b):
 
 	for student in range(0, len(row_num)):
 		# if the student has taken k-1 leaves
-		if no_of_days[student] == k-1:
+		if leaves[student] == k-1:
 			if b==1:
 				# b is the subject code
 				#appending the mail id to list1
@@ -70,7 +70,7 @@ def check(no_of_days, row_num, b):
 				mailstu(l1, message3)
 
 		# if the student has taken thr maximum number of leaves or more
-		elif no_of_days[student] > k-1:
+		elif leaves[student] > k-1:
 			if b==1:
 				#adding the roll no. to l2
 				l2=l2+str(sheet.cell(row=row_num[student], column=1).value)
@@ -161,7 +161,7 @@ while resp == 1:
 	row_num = []
 
 	# list to hold the total number of leaves taken by a particular student
-	no_of_days = []
+	leaves = []
 
 	#updating the excel sheet
 	for student in x:
@@ -177,7 +177,7 @@ while resp == 1:
 					sheet.cell(row=i, column=3).value = n
 					#saving the data
 					savefile()
-					no_of_days.append(n)
+					leaves.append(n)
 					row_num.append(i)
 
 			elif t == 2:
@@ -186,7 +186,7 @@ while resp == 1:
 					n = n+1
 					sheet.cell(row=i, column=4).value = n
 					savefile()
-					no_of_days.append(n)
+					leaves.append(n)
 					row_num.append(i)
 
 			elif t == 3:
@@ -196,8 +196,8 @@ while resp == 1:
 					sheet.cell(row=i, column=5).value = n
 					savefile()
 					row_num.append(i)
-					no_of_days.append(n)
+					leaves.append(n)
 
-	check(no_of_days, row_num, y)
+	check(leaves, row_num, t)
 	#taking the input if the user wants to check for another subject
 	resp = int(input('another subject ? 1---->yes 0--->no'))
