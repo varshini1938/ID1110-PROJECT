@@ -71,6 +71,18 @@ def check(no_of_days, row_num, b):
 				l2=l2+str(sheet.cell(row=row_num[student], column=1).value)
 				l3.append(sheet.cell(row=row_num[student], column=2).value)
 				subject = "Mechanics"
+		# If threshold crossed, modify the message
+		if l2 != "" and len(l3) != 0:
+
+			# message for student
+			msg1 = "You have lack of attendance in " + subject + " !!!"
+
+			# message for staff
+			msg2 = "The following students have lack of attendance in your subject : "+l2
+
+			mailstu(l3, msg1) # mail to students
+			staff_id = staff_mails[b-1] # pick respective staff's mail_id
+			mailstaff(staff_id, msg2) # mail to staff
         
 
 # for students
@@ -107,5 +119,58 @@ def mailstaff(mail_id, msg):
 	s.sendmail(from_id, to_id, content)
 	s.quit()
 	print('Mail Sent to staff')
+
+while resp == 1:
+	print("1--->phy\n2--->math\n3--->mech")
+
+	# enter the correspondingnumber
+	y = int(input("enter subject :"))
+
+	# no.of.absentees for that subject
+	no_of_absentees = int(input('no.of.absentees :'))
+
+	if(no_of_absentees > 1):
+		x = list(map(int, (input('roll nos :').split(','))))
+	else:
+		x = [int(input('roll no :'))]
+
+	# list to hold row of the student in Excel sheet
+	row_num = []
+
+	# list to hold total no.of leaves
+	# taken by ith student
+	no_of_days = []
+
+	for student in x:
+
+		for i in range(2, rows+2):
+
+			if y==1:
+				if sheet.cell(row=i, column=1).value == student:
+					m = sheet.cell(row=i, column=3).value
+					m = m+1
+					sheet.cell(row=i, column=3).value = m
+					savefile()
+					no_of_days.append(m)
+					row_num.append(i)
+
+			elif y == 2:
+				if sheet.cell(row=i, column=1).value == student:
+					m = sheet.cell(row=i, column=4).value
+					m = m+1
+					sheet.cell(row=i, column=4).value = m
+					no_of_days.append(m)
+					row_num.append(i)
+
+			elif y == 3:
+				if sheet.cell(row=i, column=1).value == student:
+					m = sheet.cell(row=i, column=5).value
+					m = m+1
+					sheet.cell(row=i, column=5).value = m
+					row_num.append(i)
+					no_of_days.append(m)
+
+	check(no_of_days, row_num, y)
+	resp = int(input('another subject ? 1---->yes 0--->no'))
 	
 		
