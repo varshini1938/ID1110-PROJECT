@@ -71,19 +71,6 @@ def check(no_of_days, row_num, b):
 				l2=l2+str(sheet.cell(row=row_num[student], column=1).value)
 				l3.append(sheet.cell(row=row_num[student], column=2).value)
 				subject = "Mechanics"
-		# If threshold crossed, modify the message
-		if l2 != "" and len(l3) != 0:
-
-			# message for student
-			msg1 = "You have lack of attendance in " + subject + " !!!"
-
-			# message for staff
-			msg2 = "The following students have lack of attendance in your subject : "+l2
-
-			mailstu(l3, msg1) # mail to students
-			staff_id = staff_mails[b-1] # pick respective staff's mail_id
-			mailstaff(staff_id, msg2) # mail to staff
-        
 
 # for students
  def mailstu(li, msg):
