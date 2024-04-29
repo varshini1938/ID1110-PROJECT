@@ -7,5 +7,5 @@ Attendance Tracker
 # Contibutions:
   1. Tanay Vashist:function to send the mails to students and staff
        
-  3. Abhishiktha: The type of messeage that is to be sent according to the number of leaves
+  3. Abhishiktha: 
   4. G.Sri Varshini: 
