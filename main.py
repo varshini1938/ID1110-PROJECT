@@ -29,7 +29,7 @@ l2 = ""
 l3 = []
 
 #staff mail ids
-staff_mails = ['srivarshini4578@gmail.com', '132301012@smail.iitpkd.ac.in', '132301012@smail.iitpkd.ac.in']
+staff_mails = ['srivarshini4578@gmail.com', '132301012@smail.iitpkd.ac.in', '132301012@smail.iitpkd.ac.in','132301012@smail.iitpkd.ac.in']
 
 # Warning messages
 message1 = "Warning!!! you can take only one more day leave for Physics class"
