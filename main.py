@@ -103,8 +103,8 @@ def check(leaves, row_num, b):
 
 # for students
 def mailstu(li, msg):
-    from_id = '132301012@smail.iitpkd.ac.in'
-    pwd = 'Ts07fm4578!'
+    from_id = 'enter your mail'
+    pwd = 'enter your password'
     s = smtplib.SMTP('smtp.gmail.com', 587, timeout=120)
     s.starttls()
     s.login(from_id, pwd)
@@ -122,8 +122,8 @@ def mailstu(li, msg):
 
 # for staff
 def mailstaff(mail_id, msg):
-    from_id = '132301012@smail.iitpkd.ac.in'
-    pwd = 'Ts07fm4578!'
+    from_id = 'enter your mail'
+    pwd = 'enter your password'
     to_id = mail_id
     message = MIMEMultipart()
     message['Subject'] = 'Lack of attendance report'
